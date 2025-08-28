@@ -84,21 +84,32 @@ document.addEventListener('DOMContentLoaded', () => {
 const skillBars = document.querySelectorAll('.skill-progress');
 const skillsSection = document.getElementById('skills');
 
+// Animação para os ícones de habilidades
+const skillIcons = document.querySelectorAll('.skill-icon');
 const skillsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
+            const icons = entry.target.querySelectorAll('.skill-icon');
+            icons.forEach((icon, index) => {
                 setTimeout(() => {
-                    bar.style.width = width;
-                }, 300);
+                    icon.style.opacity = '1';
+                    icon.style.transform = 'translateY(0) scale(1)';
+                }, index * 100);
             });
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.3 });
 
-skillsObserver.observe(skillsSection);
+if (skillsSection) {
+    skillsObserver.observe(skillsSection);
+    
+    // Inicializar estado dos ícones
+    skillIcons.forEach(icon => {
+        icon.style.opacity = '0';
+        icon.style.transform = 'translateY(20px) scale(0.8)';
+        icon.style.transition = 'all 0.5s ease';
+    });
+}
 
 function typeWriter(element, text, speed = 100) {
     let i = 0;
