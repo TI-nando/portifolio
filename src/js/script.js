@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroRole = document.querySelector('.hero-role');
     if (heroRole) {
         const text = heroRole.textContent;
+        heroRole.textContent
         setTimeout(() => {
             typeWriter(heroRole, text, 100);
         }, 1000);
