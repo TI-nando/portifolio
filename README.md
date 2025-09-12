@@ -4,7 +4,7 @@ Bem-vindo ao meu espaço digital! Este é o repositório do meu portfólio pesso
 
 ## 🚀 Tecnologias Utilizadas
 
-Este projeto foi inicialmente desenvolvido com HTML, CSS, JS, logo depois implementei o react e vite, como uma forma pratica de testar minhas habilidades. Com esse conjunto de ferramentas e tecnologias modernas para garanto uma melhor fluidez no site.
+Este projeto foi inicialmente desenvolvido com HTML, CSS, JS, logo depois implementei o react e vite, como uma forma pratica de testar minhas habilidades. Com esse conjunto de ferramentas e tecnologias modernas garanto uma melhor fluidez no site.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) 
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
