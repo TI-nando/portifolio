@@ -450,19 +450,25 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 1.5rem;
     justify-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .skill-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 1rem;
+    width: 140px;
+    height: 150px;
     border-radius: 0.75rem;
     background: rgba(168, 85, 247, 0.1);
     border: 2px solid transparent;
     transition: all 0.3s ease;
     cursor: pointer;
+    text-align: center;
 }
 
 .skill-icon:hover {
@@ -473,15 +479,50 @@ section {
 }
 
 .skill-icon svg {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     fill: #a855f7;
     transition: all 0.3s ease;
+}
+
+.skill-icon i {
+    font-size: 48px;
+    line-height: 1;
+}
+
+.skill-icon .skill-logo {
+    width: 48px;
+    height: 48px;
+    display: block;
+    object-fit: contain;
+}
+
+.skill-icon.skill-next .skill-logo {
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 6px;
 }
 
 .skill-icon:hover svg {
     fill: #7209b7;
     transform: scale(1.1);
+}
+
+.skill-icon.skill-next svg,
+.skill-icon.skill-sass svg,
+.skill-icon.skill-vite svg,
+.skill-icon.skill-java svg,
+.skill-icon.skill-node svg,
+.skill-icon.skill-express svg,
+.skill-icon.skill-mysql svg,
+.skill-icon.skill-git svg,
+.skill-icon.skill-github svg,
+.skill-icon.skill-vercel svg,
+.skill-icon.skill-netlify svg,
+.skill-icon.skill-postman svg,
+.skill-icon.skill-vscode svg,
+.skill-icon.skill-jest svg {
+    display: none;
 }
 
 .skill-icon span {
@@ -517,6 +558,61 @@ section {
     color: #f1f5f9;
     font-size: 0.875rem;
 }
+
+/* Brand colors for skill icons */
+.skill-icon.skill-html svg { fill: #E34F26; }
+.skill-icon.skill-html:hover svg { fill: #CC4521; }
+
+.skill-icon.skill-css svg { fill: #1572B6; }
+.skill-icon.skill-css:hover svg { fill: #0A5CAD; }
+
+.skill-icon.skill-js svg { fill: #F7DF1E; }
+.skill-icon.skill-js:hover svg { fill: #E5C700; }
+
+.skill-icon.skill-react svg { fill: #61DAFB; }
+.skill-icon.skill-react:hover svg { fill: #3FBCEB; }
+
+.skill-icon.skill-vite svg { fill: #646CFF; }
+.skill-icon.skill-vite:hover svg { fill: #7C83FF; }
+
+.skill-icon.skill-sass svg { fill: #CC6699; }
+.skill-icon.skill-sass:hover svg { fill: #B25586; }
+
+.skill-icon.skill-next svg { fill: #000000; }
+.skill-icon.skill-next:hover svg { fill: #333333; }
+
+.skill-icon.skill-node svg { fill: #339933; }
+.skill-icon.skill-node:hover svg { fill: #2B7A2B; }
+
+.skill-icon.skill-express svg { fill: #000000; }
+.skill-icon.skill-express:hover svg { fill: #333333; }
+
+.skill-icon.skill-java svg { fill: #ED8B00; }
+.skill-icon.skill-java:hover svg { fill: #c97100; }
+
+.skill-icon.skill-mysql svg { fill: #4479A1; }
+.skill-icon.skill-mysql:hover svg { fill: #2F5F85; }
+
+.skill-icon.skill-git svg { fill: #F05032; }
+.skill-icon.skill-git:hover svg { fill: #D6432A; }
+
+.skill-icon.skill-github svg { fill: #000000; }
+.skill-icon.skill-github:hover svg { fill: #333333; }
+
+.skill-icon.skill-vercel svg { fill: #000000; }
+.skill-icon.skill-vercel:hover svg { fill: #333333; }
+
+.skill-icon.skill-netlify svg { fill: #00C7B7; }
+.skill-icon.skill-netlify:hover svg { fill: #00AFA0; }
+
+.skill-icon.skill-postman svg { fill: #FF6C37; }
+.skill-icon.skill-postman:hover svg { fill: #E35D2F; }
+
+.skill-icon.skill-vscode svg { fill: #007ACC; }
+.skill-icon.skill-vscode:hover svg { fill: #005F99; }
+
+.skill-icon.skill-jest svg { fill: #99425B; }
+.skill-icon.skill-jest:hover svg { fill: #7D3549; }
 
 .education-content {
     display: grid;
