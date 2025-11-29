@@ -289,3 +289,26 @@ const debouncedScrollHandler = debounce(() => {
 
 // Replace multiple scroll event listeners with single debounced handler
 window.addEventListener('scroll', debouncedScrollHandler);
+
+// Interactive background: track mouse and trigger ripple on pause
+(() => {
+  let pauseTimer;
+  let rippleTimer;
+  const setMouseVars = (x, y) => {
+    document.documentElement.style.setProperty('--mouse-x', x + 'px');
+    document.documentElement.style.setProperty('--mouse-y', y + 'px');
+  };
+
+  window.addEventListener('mousemove', (e) => {
+    setMouseVars(e.clientX, e.clientY);
+    document.body.classList.remove('paused');
+    if (pauseTimer) clearTimeout(pauseTimer);
+    if (rippleTimer) clearTimeout(rippleTimer);
+    pauseTimer = setTimeout(() => {
+      document.body.classList.add('paused');
+      rippleTimer = setTimeout(() => {
+        document.body.classList.remove('paused');
+      }, 900);
+    }, 350);
+  });
+})();
