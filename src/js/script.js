@@ -18,6 +18,15 @@ navLinks.forEach(link => {
     });
 });
 
+// Keyboard toggle for nav
+navToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    }
+});
+
 // Header scroll effect
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
@@ -100,21 +109,28 @@ const skillsObserver = new IntersectionObserver((entries) => {
                 setTimeout(() => {
                     icon.style.opacity = '1';
                     icon.style.transform = 'translateY(0) scale(1)';
-                }, index * 100);
+                }, index * 60);
             });
         }
     });
-}, { threshold: 0.3 });
+}, { threshold: 0.2, rootMargin: '150px 0px' });
 
 if (skillsSection) {
-    skillsObserver.observe(skillsSection);
-    
-    // Initialize skill icons state
-    skillIcons.forEach(icon => {
-        icon.style.opacity = '0';
-        icon.style.transform = 'translateY(20px) scale(0.8)';
-        icon.style.transition = 'all 0.5s ease';
-    });
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+        skillIcons.forEach(icon => {
+            icon.style.opacity = '1';
+            icon.style.transform = 'none';
+            icon.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+        });
+    } else {
+        skillsObserver.observe(skillsSection);
+        skillIcons.forEach(icon => {
+            icon.style.opacity = '0';
+            icon.style.transform = 'translateY(20px) scale(0.9)';
+            icon.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+        });
+    }
 }
 
 // Typewriter effect for hero role
@@ -268,6 +284,12 @@ const debouncedScrollHandler = debounce(() => {
         whatsappButton.classList.remove('visible');
     }
 
+    // Scroll progress bar
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolledRatio = docHeight > 0 ? (window.pageYOffset / docHeight) : 0;
+    const progressEl = document.getElementById('scroll-progress');
+    if (progressEl) progressEl.style.width = `${Math.min(100, Math.max(0, scrolledRatio * 100))}%`;
+
     // Active section highlighting
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -305,10 +327,28 @@ window.addEventListener('scroll', debouncedScrollHandler);
     if (pauseTimer) clearTimeout(pauseTimer);
     if (rippleTimer) clearTimeout(rippleTimer);
     pauseTimer = setTimeout(() => {
-      document.body.classList.add('paused');
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (!isMobile) document.body.classList.add('paused');
       rippleTimer = setTimeout(() => {
         document.body.classList.remove('paused');
       }, 900);
     }, 350);
   });
 })();
+
+// Back to top button
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 600) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});

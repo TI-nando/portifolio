@@ -7,12 +7,24 @@
         <link rel="stylesheet" href="src/css/reset.css">
         <link rel="stylesheet" href="src/css/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <meta name="description" content="Portfólio de Fernando Henrique Silva — Desenvolvedor Web Full-Stack. Projetos com React, Next.js, APIs e UI moderna.">
+        <meta property="og:title" content="Fernando Henrique Silva — Desenvolvedor Web">
+        <meta property="og:description" content="Portfólio com projetos em destaque, UI moderna e integrações com APIs.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://ti-nando.github.io/">
+        <meta property="og:image" content="src/img/perfil.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Fernando Henrique Silva — Desenvolvedor Web">
+        <meta name="twitter:description" content="Projetos com React, Next.js, APIs e UI moderna.">
+        <meta name="twitter:image" content="src/img/perfil.jpg">
     </head>
 <body>
     <!-- Header -->
+    <div id="scroll-progress" aria-hidden="true"></div>
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav-container">
@@ -39,7 +51,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="nav-toggle" id="nav-toggle">
+                <div class="nav-toggle" id="nav-toggle" role="button" tabindex="0" aria-label="Abrir menu de navegação">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -523,6 +535,7 @@
             </svg>
         </button>
     </div>
+    <button id="back-to-top" aria-label="Voltar ao topo">↑</button>
 
     <script src="src/js/script.js"></script>
 </body>
