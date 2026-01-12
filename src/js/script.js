@@ -8,6 +8,8 @@ const header = document.getElementById('header');
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
+    const expanded = navToggle.classList.contains('active');
+    navToggle.setAttribute('aria-expanded', String(expanded));
 });
 
 // Close mobile menu when clicking on links
@@ -24,6 +26,8 @@ navToggle.addEventListener('keydown', (e) => {
         e.preventDefault();
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
+        const expanded = navToggle.classList.contains('active');
+        navToggle.setAttribute('aria-expanded', String(expanded));
     }
 });
 
